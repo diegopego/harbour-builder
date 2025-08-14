@@ -1,0 +1,21 @@
+services:
+  harbour:
+    build:
+      context: .
+    # Se o diretório montado já tiver seu fork, o clone é ignorado.
+    environment:
+      # Caso o mount esteja vazio e você queira clonar do seu fork:
+      # Ex.: https://github.com/seu-usuario/core
+      - HB_GIT_URL=https://github.com/diegopego/harbour-core
+      - HB_REF=master
+      - CLONE_IF_MISSING=1
+      # Para os arquivos não saírem como root no host:
+      # - HOST_UID=1000
+      # - HOST_GID=1000
+    volumes:
+      # Mapeie AQUI o SEU fork local (ajuste o caminho conforme sua máquina)
+      - ./harbour:/work/harbour:rw
+      # Saída de artefatos
+      - ./output:/output
+    command: ["/usr/local/bin/build-harbour"]
+    restart: "no"
