@@ -1,5 +1,6 @@
-# 1) Tenha seu fork local em ./harbour (ou ajuste o path no compose)
-#    Ex.: git clone https://github.com/diegopego/harbour-core ./harbour
+- https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+- Tenha seu fork local em ../harbour-core
+    - Ex.: git clone https://github.com/diegopego/harbour-core ../harbour-core
 
 # 2) Build da imagem
 docker compose build
